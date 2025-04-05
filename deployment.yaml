@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: more-license-plate-recognition
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: more-license-plate-recognition
+  template:
+    metadata:
+      labels:
+        app: more-license-plate-recognition
+    spec:
+      containers:
+      - name: more-license-plate-recognition
+        image: MoreRegALPR.azurecr.io/more-license-plate-recognition:v1
+        ports:
+        - containerPort: 5000
